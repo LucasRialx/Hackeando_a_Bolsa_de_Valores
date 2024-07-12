@@ -57,3 +57,34 @@ Este projeto é uma aplicação web criada com Flask para listar e visualizar a�
 
 ## Estrutura do Projeto
 
+hackeando-a-bolsa-de-valores/
+├── static/
+│ └── wallpaper_I.jpg
+├── templates/
+│ ├── index.html
+│ └── resultado.html
+├── app.py
+├── requirements.txt
+└── README.md
+
+
+- `static/`: Diretório para arquivos estáticos como imagens.
+- `templates/`: Diretório para arquivos HTML.
+- `app.py`: Script principal da aplicação Flask.
+- `requirements.txt`: Arquivo contendo as dependências do projeto.
+- `README.md`: Documentação do projeto.
+
+## Contribuição
+
+1. Faça um fork do projeto.
+2. Crie uma nova branch: `git checkout -b minha-nova-funcionalidade`
+3. Faça suas alterações e commit: `git commit -m 'Adiciona nova funcionalidade'`
+4. Envie para o repositório remoto: `git push origin minha-nova-funcionalidade`
+5. Abra um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+
+
