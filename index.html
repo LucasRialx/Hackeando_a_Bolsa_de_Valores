@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres do documento como UTF-8 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define a configuração da viewport para um comportamento responsivo em dispositivos móveis -->
+
+    <title>Hackeando a Bolsa de Valores</title>
+    <!-- Título da página que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Link para o CSS do Bootstrap 4 para facilitar o uso de estilos e componentes -->
+
+    <style>
+        /* Estilo CSS embutido para customização adicional */
+        body {
+            background-image: url('/static/wallpaper_I.jpg'); 
+            /* Define uma imagem de fundo para a página */
+            background-size: cover;
+            /* Ajusta o tamanho da imagem de fundo para cobrir toda a área */
+            background-position: center;
+            /* Centraliza a imagem de fundo */
+            height: 100%;
+            /* Define a altura do body para 100% da altura da viewport */
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif; /* Exemplo de alteração na fonte */
+            /* Define a fonte padrão da página */
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Fundo da área do conteúdo com opacidade */
+            /* Define uma cor de fundo branca com 80% de opacidade */
+            padding: 20px;
+            /* Adiciona padding interno à div */
+            border-radius: 10px;
+            /* Adiciona bordas arredondadas */
+            margin-top: 100px; /* Ajuste conforme necessário */
+            /* Adiciona uma margem superior */
+            max-width: 600px;
+            /* Define uma largura máxima para a div */
+        }
+        /* Estilos para o formulário, se necessário */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Container principal que contém o formulário -->
+        <h1 class="text-center">Escolha um critério para listar as ações:</h1>
+        <!-- Título centralizado -->
+        <form action="/" method="post" class="mt-4">
+            <!-- Início do formulário que envia dados via método POST para a rota "/" -->
+            <div class="form-group">
+                <!-- Grupo de formulário para o critério de seleção -->
+                <label for="criterio">Critério:</label>
+                <!-- Rótulo para o campo de seleção -->
+                <select name="criterio" id="criterio" class="form-control">
+                    <!-- Campo de seleção (dropdown) com várias opções -->
+                    <option value="default">Selecione...</option>
+                    <option value="dividendos">Melhor Dividend Yield</option>
+                    <option value="roic">Melhor ROIC</option>
+                    <option value="ev_ebit">Melhor EV/EBIT</option>
+                    <option value="pl_pvp">Melhor P/L e P/VP</option>
+                    <option value="psr_mrgliq">Melhor PSR e Margem Líquida</option>
+                    <option value="roe_roic">Melhor ROE e ROIC</option>
+                    <option value="liqcorr_divbrutpatrim">Melhor Liquidez Corrente e Dívida Bruta/Patrimônio</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Buscar</button>
+            <!-- Botão para enviar o formulário -->
+        </form>
+    </div>
+</body>
+</html>

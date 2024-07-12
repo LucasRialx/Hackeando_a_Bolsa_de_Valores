@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <!-- Define a codificação de caracteres do documento como UTF-8 -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Define a configuração da viewport para um comportamento responsivo em dispositivos móveis -->
+
+    <title>Resultados</title>
+    <!-- Título da página que aparece na aba do navegador -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Link para o CSS do Bootstrap 4 para facilitar o uso de estilos e componentes -->
+
+    <style>
+        /* Estilo CSS embutido para customização adicional */
+        body {
+            background-image: url('/static/wallpaper_I.jpg');
+            /* Define uma imagem de fundo para a página */
+            background-size: cover;
+            /* Ajusta o tamanho da imagem de fundo para cobrir toda a área */
+            background-position: center;
+            /* Centraliza a imagem de fundo */
+            background-repeat: no-repeat;
+            /* Evita a repetição da imagem de fundo */
+            color: white;
+            /* Define a cor do texto para branco */
+        }
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.9); /* Fundo branco semitransparente */
+            /* Define uma cor de fundo branca com 90% de opacidade */
+            padding: 20px;
+            /* Adiciona padding interno à div */
+            border-radius: 10px;
+            /* Adiciona bordas arredondadas */
+            overflow-x: auto; /* Adiciona rolagem horizontal */
+            /* Adiciona a capacidade de rolagem horizontal */
+            margin: 20px; /* Adiciona margem */
+            /* Adiciona uma margem ao redor da div */
+        }
+        table {
+            border-collapse: collapse;
+            /* Remove os espaços entre as bordas da tabela */
+            width: 100%;
+            /* Define a largura da tabela como 100% do contêiner */
+            min-width: 600px; /* Define a largura mínima da tabela */
+            /* Define uma largura mínima para a tabela */
+        }
+        th, td {
+            border: 1px solid black;
+            /* Define uma borda preta para as células */
+            padding: 8px;
+            /* Adiciona padding interno às células */
+            text-align: center;
+            /* Alinha o texto ao centro */
+            color: black; /* Definindo a cor do texto para as células th e td */
+            /* Define a cor do texto como preto */
+            font-size: 0.9em; /* Tamanho da fonte reduzido para melhor ajuste */
+            /* Define o tamanho da fonte como 0.9em */
+        }
+        th {
+            background-color: #f2f2f2; /* Cabeçalhos com fundo branco */
+            /* Define uma cor de fundo para os cabeçalhos da tabela */
+        }
+        h1 {
+            color: white;
+            /* Define a cor do texto do título como branco */
+            text-shadow: 1px 1px 2px black, 0 0 25px black, 0 0 5px darkblue;
+            /* Adiciona sombra ao texto do título */
+            text-align: center;
+            /* Alinha o texto ao centro */
+            margin-top: 20px;
+            /* Adiciona uma margem superior ao título */
+        }
+        .back-button {
+            margin-top: 20px;
+            /* Adiciona uma margem superior ao botão de voltar */
+            display: block;
+            /* Define o botão como um elemento de bloco */
+            text-align: center;
+            /* Alinha o texto ao centro */
+            text-decoration: none;
+            /* Remove a decoração do texto (sublinhado) */
+            color: white;
+            /* Define a cor do texto como branco */
+            background-color: #007bff;
+            /* Define a cor de fundo do botão */
+            padding: 10px 20px;
+            /* Adiciona padding interno ao botão */
+            border-radius: 5px;
+            /* Adiciona bordas arredondadas ao botão */
+            border: 2px solid #007bff;
+            /* Define uma borda azul ao botão */
+            transition: background-color 0.3s, color 0.3s;
+            /* Adiciona uma transição suave ao mudar a cor de fundo e do texto */
+        }
+        .back-button:hover {
+            background-color: white;
+            /* Altera a cor de fundo ao passar o mouse */
+            color: #007bff;
+            /* Altera a cor do texto ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Listagem de Ações</h1>
+    <!-- Título da página -->
+
+    <div class="table-container">
+        <!-- Container principal que contém a tabela -->
+        <table class="table table-striped">
+            <!-- Tabela com classes do Bootstrap para estilização -->
+            <thead class="thead-light">
+                <!-- Cabeçalho da tabela -->
+                <tr>
+                    <!-- Linha do cabeçalho da tabela -->
+                    <th>Papel</th>
+                    <th>Cotação</th>
+                    <th>P/L</th>
+                    <th>P/VP</th>
+                    <th>PSR</th>
+                    <th>Div.Yield</th>
+                    <th>P/Ativo</th>
+                    <th>P/Cap. Giro</th>
+                    <th>P/EBIT</th>
+                    <th>P/Ativ Circ.Liq</th>
+                    <th>EV/EBIT</th>
+                    <th>EV/EBITDA</th>
+                    <th>Mrg Ebit</th>
+                    <th>Mrg. Líq.</th>
+                    <th>Liq. Corr.</th>
+                    <th>ROIC</th>
+                    <th>ROE</th>
+                    <th>Liq.2meses</th>
+                    <th>Patrim. Líq</th>
+                    <th>Dív.Brut/ Patrim.</th>
+                    <th>Cresc. Rec.5a</th>
+                </tr>
+                <!-- Fim da linha do cabeçalho -->
+            </thead>
+            <tbody>
+                <!-- Corpo da tabela que será preenchido dinamicamente -->
+                {% for index, row in resultado.iterrows() %}
+                <tr>
+                    <td>{{ index }}</td>
+                    <td>{{ row['Cotação'] }}</td>
+                    <td>{{ row['P/L'] }}</td>
+                    <td>{{ row['P/VP'] }}</td>
+                    <td>{{ row['PSR'] }}</td>
+                    <td>{{ row['Div.Yield'] }}</td>
+                    <td>{{ row['P/Ativo'] }}</td>
+                    <td>{{ row['P/Cap. Giro'] }}</td>
+                    <td>{{ row['P/EBIT'] }}</td>
+                    <td>{{ row['P/Ativ Circ.Liq'] }}</td>
+                    <td>{{ row['EV/EBIT'] }}</td>
+                    <td>{{ row['EV/EBITDA'] }}</td>
+                    <td>{{ row['Mrg Ebit'] }}</td>
+                    <td>{{ row['Mrg. Líq.'] }}</td>
+                    <td>{{ row['Liq. Corr.'] }}</td>
+                    <td>{{ row['ROIC'] }}</td>
+                    <td>{{ row['ROE'] }}</td>
+                    <td>{{ row['Liq.2meses'] }}</td>
+                    <td>{{ row['Patrim. Líq'] }}</td>
+                    <td>{{ row['Dív.Brut/ Patrim.'] }}</td>
+                    <td>{{ row['Cresc. Rec.5a'] }}</td>
+                </tr>
+                {% endfor %}
+                <!-- Loop para preencher a tabela com os dados do DataFrame 'resultado' -->
+            </tbody>
+        </table>
+    </div>
+    <a href="/" class="btn btn-primary btn-block back-button">Retornar</a>
+    <!-- Botão para retornar à página inicial -->
+</body>
+</html>
