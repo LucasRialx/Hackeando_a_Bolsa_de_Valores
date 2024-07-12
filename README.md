@@ -60,9 +60,11 @@ Este projeto é uma aplicação web criada com Flask para listar e visualizar a�
 hackeando-a-bolsa-de-valores/
 ├── static/
 │ └── wallpaper_I.jpg
+
 ├── templates/
 │ ├── index.html
 │ └── resultado.html
+
 ├── app.py
 ├── requirements.txt
 └── README.md
