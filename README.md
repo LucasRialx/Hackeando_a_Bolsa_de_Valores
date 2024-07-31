@@ -84,6 +84,19 @@ hackeando-a-bolsa-de-valores/
 4. Envie para o repositório remoto: `git push origin minha-nova-funcionalidade`
 5. Abra um pull request.
 
+## Futuras Atualizações
+
+Estamos trabalhando em diversas melhorias para tornar o aplicativo ainda mais útil e eficiente. Confira algumas das atualizações planejadas:
+
+- ** Campo de Consulta Focado em Fundos Imobiliários**: Adicionaremos uma nova fonte de consulta especificamente voltada para fundos imobiliários, permitindo uma análise mais abrangente e detalhada.
+
+- **Bot de Compra e Venda de Ações através do MetaTrader5**: Implementaremos um bot para automação das operações de compra e venda de ações usando a plataforma MetaTrader5, visando facilitar a execução das transações e otimizar a estratégia de investimento.
+
+- **Suporte Web**: Estamos planejando adicionar suporte para acesso e gerenciamento do aplicativo através de uma interface web, proporcionando maior flexibilidade e conveniência para os usuários.
+
+Fique atento às atualizações para mais detalhes sobre o progresso e a implementação dessas novas funcionalidades!
+
+
 ## Licença
 
 Este projeto está licenciado sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
