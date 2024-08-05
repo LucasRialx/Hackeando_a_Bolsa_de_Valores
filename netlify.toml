@@ -1,5 +1,5 @@
 [build]
-  publish = "public"  # Certifique-se de que este é o diretório correto para o conteúdo estático
+  publish = "Hackeando_a_Bolsa_de_Valores"  # Certifique-se de que este é o diretório correto para o conteúdo estático
   command = "echo 'No build required'"
 
 [[redirects]]
