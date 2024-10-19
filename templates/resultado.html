@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Análise</title>
+    <!-- Link para o Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-image: url('/static/wallpaper_I.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            max-width: 90%;
+        }
+        h1 {
+            color: black;
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.5em;
+        }
+        .table-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 700px;
+            font-size: 0.8em;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 6px;
+            text-align: center;
+            color: black;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .back-button {
+            margin-top: 20px;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: white;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 2px solid #007bff;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .back-button:hover {
+            background-color: white;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados da Análise</h1>
+        <div class="table-container">
+            <table class="highlight responsive-table">
+                <thead>
+                    <tr>
+                        <th>Papel</th>
+                        <th>Cotação</th>
+                        <th>P/L</th>
+                        <th>P/VP</th>
+                        <th>PSR</th>
+                        <th>Div.Yield</th>
+                        <th>P/Ativo</th>
+                        <th>P/Cap. Giro</th>
+                        <th>P/EBIT</th>
+                        <th>P/Ativ Circ.Liq</th>
+                        <th>EV/EBIT</th>
+                        <th>EV/EBITDA</th>
+                        <th>Mrg Ebit</th>
+                        <th>Mrg. Líq.</th>
+                        <th>Liq. Corr.</th>
+                        <th>ROIC</th>
+                        <th>ROE</th>
+                        <th>Liq.2meses</th>
+                        <th>Patrim. Líq</th>
+                        <th>Dív.Brut/ Patrim.</th>
+                        <th>Cresc. Rec.5a</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for index, row in resultado.iterrows() %}
+                    <tr>
+                        <td>{{ index }}</td>
+                        <td>{{ row['Cotação'] }}</td>
+                        <td>{{ row['P/L'] }}</td>
+                        <td>{{ row['P/VP'] }}</td>
+                        <td>{{ row['PSR'] }}</td>
+                        <td>{{ row['Div.Yield'] }}</td>
+                        <td>{{ row['P/Ativo'] }}</td>
+                        <td>{{ row['P/Cap. Giro'] }}</td>
+                        <td>{{ row['P/EBIT'] }}</td>
+                        <td>{{ row['P/Ativ Circ.Liq'] }}</td>
+                        <td>{{ row['EV/EBIT'] }}</td>
+                        <td>{{ row['EV/EBITDA'] }}</td>
+                        <td>{{ row['Mrg Ebit'] }}</td>
+                        <td>{{ row['Mrg. Líq.'] }}</td>
+                        <td>{{ row['Liq. Corr.'] }}</td>
+                        <td>{{ row['ROIC'] }}</td>
+                        <td>{{ row['ROE'] }}</td>
+                        <td>{{ row['Liq.2meses'] }}</td>
+                        <td>{{ row['Patrim. Líq'] }}</td>
+                        <td>{{ row['Dív.Brut/ Patrim.'] }}</td>
+                        <td>{{ row['Cresc. Rec.5a'] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <a href="/" class="btn blue back-button">Retornar</a>
+    </div>
+
+    <!-- Script do Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackeando a Bolsa de Valores</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        body {
+            background-image: url('/static/wallpaper_I.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 100px;
+            max-width: 800px;
+        }
+        .descricao-criterio {
+            display: none;
+            margin-top: 5px;
+            padding: 5px;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            font-size: 12px;
+        }
+        .descricao-criterio p {
+            margin: 0;
+        }
+        .form-group {
+            position: relative;
+        }
+        .form-group .criterio-item {
+            cursor: pointer;
+            display: block;
+            margin: 3px 0;
+            padding: 6px 8px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 12px;
+            transition: background-color 0.3s;
+        }
+        .form-group .criterio-item:hover {
+            background-color: #e2e6ea;
+        }
+        .criterio-item.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .btn-primary {
+            width: 100%; /* Define o botão como proporcional à largura do contêiner */
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin-top: 20px; /* Espaço extra acima do botão */
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function mostrarDescricao(criterio) {
+            var descricao = document.getElementById('descricao-' + criterio);
+            var todos = document.getElementsByClassName('descricao-criterio');
+            var criterioItens = document.getElementsByClassName('criterio-item');
+            for (var i = 0; i < todos.length; i++) {
+                todos[i].style.display = 'none';
+            }
+            for (var i = 0; i < criterioItens.length; i++) {
+                criterioItens[i].classList.remove('active');
+            }
+            if (descricao) {
+                descricao.style.display = descricao.style.display === 'none' || descricao.style.display === '' ? 'block' : 'none';
+            }
+            var item = document.querySelector('[data-criterio="' + criterio + '"]');
+            if (item) {
+                item.classList.add('active');
+            }
+            document.getElementById('criterio').value = criterio; // Atualiza o campo oculto com o critério selecionado
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Hackeando a Bolsa</h2>
+        <form action="/" method="post" class="mt-4">
+            <div class="form-group">
+                <bold for="criterios">Critérios:</bold>
+                <div id="criterios" class="form-control">
+                    <div class="criterio-item" data-criterio="dividendos" onclick="mostrarDescricao('dividendos')">
+                        Dividendos
+                    </div>
+                    <div class="criterio-item" data-criterio="roic" onclick="mostrarDescricao('roic')">
+                        ROIC
+                    </div>
+                    <div class="criterio-item" data-criterio="ev_ebit" onclick="mostrarDescricao('ev_ebit')">
+                        EV/EBIT
+                    </div>
+                    <div class="criterio-item" data-criterio="pl_pvp" onclick="mostrarDescricao('pl_pvp')">
+                        P/L e P/VP
+                    </div>
+                    <div class="criterio-item" data-criterio="psr_mrgliq" onclick="mostrarDescricao('psr_mrgliq')">
+                        PSR e Margem Líquida
+                    </div>
+                    <div class="criterio-item" data-criterio="roe_roic" onclick="mostrarDescricao('roe_roic')">
+                        ROE e ROIC
+                    </div>
+                    <div class="criterio-item" data-criterio="liqcorr_divbrutpatrim" onclick="mostrarDescricao('liqcorr_divbrutpatrim')">
+                        Liquidez Corrente e Dívida Bruta/Patrimônio
+                    </div>
+                </div>
+                <input type="hidden" name="criterio" id="criterio"> <!-- Campo oculto para o critério selecionado -->
+            </div>
+            <button type="submit" class="btn waves-effect waves-light blue">Buscar</button>
+        </form>
+        <div id="descricao-dividendos" class="descricao-criterio">
+            <p>Empresas que pagam os melhores dividendos. Dividendos são parte dos lucros que a empresa distribui aos acionistas, representando um retorno direto sobre o investimento.</p>
+        </div>
+        <div id="descricao-roic" class="descricao-criterio">
+            <p>Empresas com o melhor ROIC (Retorno sobre o Capital Investido). O ROIC mede a eficiência da empresa em gerar lucros com o dinheiro investido pelos acionistas e credores.</p>
+        </div>
+        <div id="descricao-ev_ebit" class="descricao-criterio">
+            <p>Empresas com o menor EV/EBIT. Este indicador compara o valor total da empresa (EV) com seus lucros operacionais (EBIT), ajudando a identificar se uma empresa está subvalorizada.</p>
+        </div>
+        <div id="descricao-pl_pvp" class="descricao-criterio">
+            <p>Empresas com P/L menor que 15 e P/VP menor que 1. P/L (Preço sobre Lucro) indica quantos anos levaria para recuperar o investimento com os lucros atuais. P/VP (Preço sobre Valor Patrimonial) compara o preço da ação com o valor contábil dos ativos da empresa.</p>
+        </div>
+        <div id="descricao-psr_mrgliq" class="descricao-criterio">
+            <p>Empresas com PSR menor que 2 e Margem Líquida maior que 10%. PSR (Preço sobre Receita) compara o valor da empresa com sua receita total. Margem Líquida mostra a porcentagem da receita que se transforma em lucro líquido.</p>
+        </div>
+        <div id="descricao-roe_roic" class="descricao-criterio">
+            <p>Empresas com o melhor ROE (Retorno sobre Patrimônio) e ROIC. ROE mede a capacidade da empresa de gerar lucros com o dinheiro dos acionistas, enquanto o ROIC mede o retorno sobre o capital total investido.</p>
+        </div>
+        <div id="descricao-liqcorr_divbrutpatrim" class="descricao-criterio">
+            <p>Empresas com Liquidez Corrente maior que 1 e Dívida Bruta/Patrimônio menor que 1. Liquidez Corrente indica a capacidade da empresa de pagar suas dívidas de curto prazo. Dívida Bruta/Patrimônio compara a dívida total da empresa com seu patrimônio líquido.</p>
+        </div>
+    </div>
+</body>
+</html>
