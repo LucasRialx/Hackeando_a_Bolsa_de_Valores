@@ -13,7 +13,7 @@ Este projeto é uma aplicação web criada com Flask para listar e visualizar a�
 - **Flask**: Framework web usado para construir a aplicação.
 - **Selenium**: Biblioteca usada para automação de navegação web e raspagem de dados.
 - **Pandas**: Biblioteca usada para manipulação e análise de dados.
-- **Bootstrap**: Framework de CSS usado para estilização da interface web.
+- **Materialize**: Framework de CSS usado para estilização da interface web.
 - **HTML/CSS**: Linguagens usadas para a estrutura e estilização da interface.
 
 ## Pré-requisitos
